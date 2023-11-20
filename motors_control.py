@@ -24,6 +24,13 @@ def forward(speed):
     GPIO.output(motor1_pin2, speed)
     GPIO.output(motor2_pin2, speed)
 
+# движение назад
+def backward(speed):
+    GPIO.output(motor1_pin1, GPIO.LOW)
+    GPIO.output(motor2_pin1, GPIO.LOW)
+    GPIO.output(motor1_pin2, speed)
+    GPIO.output(motor2_pin2, speed)
+
 # остановка двигателей
 def stop():
     GPIO.output(motor1_pin1, GPIO.HIGH)
@@ -35,6 +42,13 @@ def stop():
 forward(50)
 
 time.sleep(2)
+# Остановка двигателей
+stop()
+
+# Движение назад со скоростью 50%
+backward(50)
+
+time.sleep(1)
 # Остановка двигателей
 stop()
 
